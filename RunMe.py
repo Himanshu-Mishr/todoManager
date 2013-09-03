@@ -20,8 +20,14 @@
 #  
 #  
 
-# importing time to get the time stamp for each task when entered.
-import time
+def counter():
+  f = open('data.todo','r')
+  count = 0
+  while f.readline():
+
+    count += 1
+  return count
+
 
 def info():
 
@@ -39,6 +45,7 @@ def info():
 
 def main():
 
+  
   # This while loop depends on the option that is input.
   # It run infintly and depends on user. 
   while(1):
@@ -74,8 +81,10 @@ def main():
       # collection task
       task = input("Enter Task : - ")
 
+      # it calculate number of task already done .
+      count = counter() - 2
       # writing task to file
-      todoFile.write(time.asctime()+' |>       '+task + '\n')
+      todoFile.write("\t\t"+str(count)+") "+task + '\n')
 
       # closing the file
       todoFile.close()
